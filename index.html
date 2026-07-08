@@ -124,46 +124,26 @@
       </div>
 
       <div class="hero-visual reveal">
-        <div class="hero-contact-card">
-          <span class="hero-contact-card-badge"><i class="ph ph-lightning"></i> Quick quote</span>
-          <h3>Tell us what you need.</h3>
-          <p class="sub">A strategist replies within one business day, usually sooner.</p>
-          <!--
-            This form validates client-side only. Wire it up to a real
-            endpoint (Formspree, Netlify Forms, or a backend route) before
-            launch so submissions actually reach your inbox.
-          -->
-          <form data-contact-form novalidate>
-            <div class="form-grid">
-              <div class="form-field full">
-                <label for="hero-name">Full name</label>
-                <input type="text" id="hero-name" name="name" placeholder="Your name" required>
-                <span class="error">Please enter your name.</span>
-              </div>
-              <div class="form-field full">
-                <label for="hero-email">Email</label>
-                <input type="email" id="hero-email" name="email" placeholder="you@company.com" required>
-                <span class="error">Please enter a valid email.</span>
-              </div>
-              <div class="form-field full">
-                <label for="hero-service">Interested in</label>
-                <select id="hero-service" name="service">
-                  <option value="not-sure">Not sure yet</option>
-                  <option value="email">Email Marketing</option>
-                  <option value="website">Website Creation</option>
-                  <option value="gbp">Google Business Profile</option>
-                  <option value="bundle">All three (bundle)</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="hero-message">A little about your business</label>
-                <textarea id="hero-message" name="message" rows="3" placeholder="What are you hoping to fix first?" required></textarea>
-                <span class="error">Let us know a little about your business.</span>
-              </div>
+        <div class="orbit-graphic">
+          <svg viewBox="0 0 480 480" aria-hidden="true">
+            <circle class="orbit-ring animate" cx="240" cy="240" r="196"></circle>
+            <circle class="orbit-ring animate rev" cx="240" cy="240" r="128"></circle>
+            <line class="orbit-line" x1="240" y1="44" x2="240" y2="112"></line>
+            <line class="orbit-line" x1="240" y1="368" x2="240" y2="436"></line>
+            <line class="orbit-line" x1="44" y1="240" x2="112" y2="240"></line>
+            <line class="orbit-line" x1="368" y1="240" x2="436" y2="240"></line>
+            <circle class="orbit-node" cx="240" cy="44" r="6"></circle>
+            <circle class="orbit-node dim" cx="436" cy="240" r="5"></circle>
+            <circle class="orbit-node" cx="240" cy="436" r="6"></circle>
+            <circle class="orbit-node dim" cx="44" cy="240" r="5"></circle>
+            <circle class="orbit-node dim" cx="112" cy="112" r="4"></circle>
+            <circle class="orbit-node" cx="368" cy="368" r="4"></circle>
+          </svg>
+          <div class="hero-visual-center">
+            <div class="hero-visual-center-badge float-slow">
+              <i class="ph ph-stack"></i>
             </div>
-            <button type="submit" class="btn btn-primary">Send message</button>
-            <div class="form-status" role="status"></div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -248,7 +228,6 @@
       <div class="services-grid reveal">
 
         <a class="service-card" href="services/email-marketing.html" style="text-decoration:none;">
-          <span class="service-index">01</span>
           <span class="service-icon"><i class="ph ph-envelope-simple-open"></i></span>
           <h3>Email Marketing</h3>
           <p>Strategy, flows, copy and design that turn your list into a real, predictable revenue channel.</p>
@@ -260,7 +239,6 @@
         </a>
 
         <a class="service-card is-2" href="services/website-creation.html" style="text-decoration:none;">
-          <span class="service-index">02</span>
           <span class="service-icon"><i class="ph ph-browser"></i></span>
           <h3>Website Creation</h3>
           <p>Fast, on-brand websites engineered to convert visitors into enquiries, not just look nice.</p>
@@ -272,7 +250,6 @@
         </a>
 
         <a class="service-card is-3" href="services/google-business.html" style="text-decoration:none;">
-          <span class="service-index">03</span>
           <span class="service-icon"><i class="ph ph-map-pin"></i></span>
           <h3>Google Business Profile</h3>
           <p>Win the map pack and turn "near me" searches into calls, visits and bookings.</p>
@@ -283,30 +260,6 @@
           <span class="service-more">Explore local optimization <i class="ph ph-arrow-right"></i></span>
         </a>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="results">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Our results</span>
-        <h2 class="h2">Real numbers, across all three disciplines.</h2>
-      </div>
-      <div class="results-grid reveal">
-        <div class="result-card">
-          <div class="num" data-count-to="3.2" data-count-suffix="x" data-count-decimals="1">0x</div>
-          <div class="label">average increase in email-attributed revenue within 90 days</div>
-        </div>
-        <div class="result-card">
-          <div class="num" data-count-to="2.4" data-count-suffix="x" data-count-decimals="1">0x</div>
-          <div class="label">average lift in website conversion rate after a relaunch</div>
-        </div>
-        <div class="result-card">
-          <div class="num" data-count-to="61" data-count-suffix="%">0%</div>
-          <div class="label">average increase in calls &amp; direction requests from Google Business Profile</div>
-        </div>
       </div>
     </div>
   </section>
@@ -521,11 +474,6 @@
           <li><a href="mailto:hello@akarostudios.com" data-copy="hello@akarostudios.com">hello@akarostudios.com</a></li>
           <li><a href="tel:+10000000000" data-copy="+1 (000) 000-0000">+1 (000) 000-0000</a></li>
         </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Get a quote</h5>
-        <p style="color:var(--ink-faint); font-size:0.88rem; margin-bottom:1rem;">Tell us about your business. We reply within one business day.</p>
-        <a href="contact.html" class="btn btn-ghost">Get a quote</a>
       </div>
     </div>
     <div class="footer-bottom">
