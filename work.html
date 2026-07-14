@@ -125,14 +125,14 @@
           </div>
         </div>
 
-        <div class="work-card" id="petrov" data-category="email">
-          <img src="https://picsum.photos/seed/akaro-case-petrov/700/875" alt="Petrov & Sons email campaign preview" loading="lazy" width="700" height="875">
+        <button type="button" class="work-card" id="invitations" data-category="email" data-open-modal="tpl-invitations">
+          <img src="assets/wedding-invitation.svg" alt="Elegant wedding invitation envelope with a wax seal" loading="lazy" width="900" height="1125">
           <div class="work-overlay">
             <span class="work-tag">Email Marketing</span>
-            <h3>Petrov &amp; Sons</h3>
-            <p class="work-result">List capture and segmentation programme, sending less and earning more.</p>
+            <h3>Wedding Invitations</h3>
+            <p class="work-result">A matching digital invitation suite, sent by email &mdash; click for details.</p>
           </div>
-        </div>
+        </button>
 
         <div class="work-card" id="solstice" data-category="website">
           <img src="https://picsum.photos/seed/akaro-case-solstice/700/875" alt="Solstice Roasters website preview" loading="lazy" width="700" height="875">
@@ -192,13 +192,13 @@
     </div>
   </section>
 
-  <!-- FEATURED: live wedding website demo -->
+  <!-- FEATURED: live wedding website demo + matching invitations -->
   <section style="padding-top:0;">
     <div class="container">
       <div class="section-head split reveal">
         <div>
           <span class="eyebrow is-2">Featured project</span>
-          <h2 class="h2" style="margin-top:0.9rem;">Wedding websites, live and bookable.</h2>
+          <h2 class="h2" style="margin-top:0.9rem;">Wedding websites and invitations, crafted together.</h2>
         </div>
       </div>
       <div class="about-grid reveal" style="align-items:start;">
@@ -224,6 +224,30 @@
           </ul>
           <p class="body-text" style="margin-top:1.25rem;">That list is just a starting point &mdash; whatever idea a couple brings us, we can design and build it into their site.</p>
           <a href="https://wedding-day-websites.vercel.app" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:1.5rem;">View the live demo <i class="ph ph-arrow-up-right"></i></a>
+        </div>
+      </div>
+
+      <div style="height:1px; background:var(--border); margin:3.5rem 0;"></div>
+
+      <div class="about-grid reveal" style="align-items:start;">
+        <div class="about-visual" style="aspect-ratio:4/3; background:var(--surface-hi);">
+          <img src="assets/wedding-invitation.svg" alt="Elegant wedding invitation envelope with a wax seal" loading="lazy" width="900" height="1125">
+          <div class="about-badge">
+            <span class="num"><i class="ph ph-envelope-simple-open" style="font-size:1.4rem;"></i></span>
+            <span class="label">A matching digital invitation suite, coming very soon</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="h3">Matching wedding invitations, sent digitally.</h3>
+          <p class="body-text" style="margin-top:1rem;">A wedding website works even better paired with the invitation that sent guests there in the first place. We're finishing a matching digital invitation suite &mdash; the same names, colours and fonts as the couple's website, sent straight to email with the RSVP link built in, so replies land in one place instead of scattered texts and phone calls.</p>
+          <ul class="pricing-features" style="margin-top:1.5rem;">
+            <li><i class="ph ph-check"></i>Matching design, colours and fonts to the couple's wedding website</li>
+            <li><i class="ph ph-check"></i>An RSVP link built straight into the invite, replies land in one place</li>
+            <li><i class="ph ph-check"></i>Save-the-date and reminder follow-ups sent automatically as the date nears</li>
+            <li><i class="ph ph-check"></i>Guest list &amp; plus-one tracking, so nothing gets lost in group chats</li>
+          </ul>
+          <p class="body-text" style="margin-top:1.25rem;">As always, any idea a couple brings us can be added.</p>
+          <p class="body-text" style="margin-top:1.25rem;"><em>A live example is on the way &mdash; we'll drop the link here the moment it's ready.</em></p>
         </div>
       </div>
     </div>
@@ -315,6 +339,22 @@
     <li><i class="ph ph-check"></i>Gift registry links, add-to-calendar buttons and more &mdash; any idea a couple brings us can be built in</li>
   </ul>
   <a href="https://wedding-day-websites.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Check out our example <i class="ph ph-arrow-up-right"></i></a>
+</template>
+
+<template id="tpl-invitations">
+  <div class="modal-card-top">
+    <span class="service-icon"><i class="ph ph-envelope-simple-open"></i></span>
+    <button class="btn-icon-circle" data-modal-close type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+  </div>
+  <h3>Wedding Invitations</h3>
+  <p class="body-text">A wedding website works even better paired with the invitation that sent guests there in the first place. We're finishing a matching digital invitation suite &mdash; the same names, colours and fonts as the couple's website, sent straight to email with the RSVP link built in, so replies land in one place instead of scattered texts and phone calls.</p>
+  <ul class="modal-list">
+    <li><i class="ph ph-check"></i>Matching design, colours and fonts to the couple's wedding website</li>
+    <li><i class="ph ph-check"></i>An RSVP link built straight into the invite, replies land in one place</li>
+    <li><i class="ph ph-check"></i>Save-the-date and reminder follow-ups sent automatically as the date nears</li>
+    <li><i class="ph ph-check"></i>Guest list &amp; plus-one tracking, so nothing gets lost in group chats</li>
+  </ul>
+  <p class="body-text"><em>A live example is on the way &mdash; we'll drop the link here the moment it's ready.</em></p>
 </template>
 
 <script src="js/main.js"></script>
