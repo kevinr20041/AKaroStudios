@@ -107,23 +107,23 @@
 
       <div class="work-grid reveal">
 
-        <div class="work-card" id="bramwell" data-category="email">
-          <img src="https://picsum.photos/seed/akaro-case-bramwell/700/875" alt="Bramwell & Finch email campaign preview" loading="lazy" width="700" height="875">
+        <button type="button" class="work-card" id="welcome" data-category="email" data-open-modal="tpl-welcome">
+          <img src="assets/welcome-email.svg" alt="Welcome email mockup with a Get Started button" loading="lazy" width="900" height="1125">
           <div class="work-overlay">
             <span class="work-tag">Email Marketing</span>
-            <h3>Bramwell &amp; Finch</h3>
-            <p class="work-result">Full lifecycle flow rebuild across five automations, welcome flow now out-earning half of monthly campaigns.</p>
+            <h3>Welcome Emails</h3>
+            <p class="work-result">The first message a new subscriber gets &mdash; click for details.</p>
           </div>
-        </div>
+        </button>
 
-        <div class="work-card" id="marlow" data-category="email">
-          <img src="https://picsum.photos/seed/akaro-case-marlow/700/875" alt="Marlow & Rye email campaign preview" loading="lazy" width="700" height="875">
+        <button type="button" class="work-card" id="thank-you" data-category="email" data-open-modal="tpl-thank-you">
+          <img src="assets/thank-you-email.svg" alt="Thank you email mockup confirming an order" loading="lazy" width="900" height="1125">
           <div class="work-overlay">
             <span class="work-tag">Email Marketing</span>
-            <h3>Marlow &amp; Rye</h3>
-            <p class="work-result">Seasonal campaign calendar and creative system built around real inventory cycles.</p>
+            <h3>Thank You Emails</h3>
+            <p class="work-result">Confirming an order or booking &mdash; click for details.</p>
           </div>
-        </div>
+        </button>
 
         <button type="button" class="work-card" id="invitations" data-category="email" data-open-modal="tpl-invitations">
           <img src="assets/wedding-invitation.svg" alt="Elegant wedding invitation envelope with a wax seal" loading="lazy" width="900" height="1125">
@@ -134,22 +134,19 @@
           </div>
         </button>
 
-        <div class="work-card" id="solstice" data-category="website">
-          <img src="https://picsum.photos/seed/akaro-case-solstice/700/875" alt="Solstice Roasters website preview" loading="lazy" width="700" height="875">
+        <button type="button" class="work-card" id="trade" data-category="website" data-open-modal="tpl-trade">
+          <img src="https://picsum.photos/seed/akaro-case-trade/700/875" alt="Trade and local business website preview" loading="lazy" width="700" height="875">
           <div class="work-overlay">
             <span class="work-tag">Website Creation</span>
-            <h3>Solstice Roasters</h3>
-            <p class="work-result">Full rebuild on the Growth tier, conversions up 2.6x in eight weeks.</p>
+            <h3>Trade &amp; Local Business Websites</h3>
+            <p class="work-result">Currently building one for an electrician &mdash; click for details.</p>
           </div>
-        </div>
+        </button>
 
-        <div class="work-card" id="ferro" data-category="website">
-          <img src="https://picsum.photos/seed/akaro-case-ferro/700/875" alt="Ferro & Vale Architecture website preview" loading="lazy" width="700" height="875">
-          <div class="work-overlay">
-            <span class="work-tag">Website Creation</span>
-            <h3>Ferro &amp; Vale Architecture</h3>
-            <p class="work-result">Custom build with a portfolio browser, load time cut from 9s to under 1s.</p>
-          </div>
+        <div class="work-card is-coming-soon" id="website-next" data-category="website">
+          <span class="coming-soon-icon"><i class="ph ph-browser"></i></span>
+          <h3>More Websites Coming Soon</h3>
+          <p>The next build starts once the trade site above is finished.</p>
         </div>
 
         <button type="button" class="work-card" id="wedding" data-category="website" data-open-modal="tpl-wedding">
@@ -161,31 +158,10 @@
           </div>
         </button>
 
-        <div class="work-card" id="corner" data-category="gbp">
-          <img src="https://picsum.photos/seed/akaro-case-corner/700/875" alt="Corner Kitchen Co. Google Business Profile preview" loading="lazy" width="700" height="875">
-          <div class="work-overlay">
-            <span class="work-tag">Google Business Profile</span>
-            <h3>Corner Kitchen Co.</h3>
-            <p class="work-result">Map pack ranking achieved for 14 target search terms in one quarter.</p>
-          </div>
-        </div>
-
-        <div class="work-card" id="alder" data-category="gbp">
-          <img src="https://picsum.photos/seed/akaro-case-alder/700/875" alt="Alder Street Veterinary Google Business Profile preview" loading="lazy" width="700" height="875">
-          <div class="work-overlay">
-            <span class="work-tag">Google Business Profile</span>
-            <h3>Alder Street Veterinary</h3>
-            <p class="work-result">Review rating recovered from 3.6 to 4.9 stars through active response management.</p>
-          </div>
-        </div>
-
-        <div class="work-card" id="junction" data-category="gbp">
-          <img src="https://picsum.photos/seed/akaro-case-junction/700/875" alt="Junction Auto Repair Google Business Profile preview" loading="lazy" width="700" height="875">
-          <div class="work-overlay">
-            <span class="work-tag">Google Business Profile</span>
-            <h3>Junction Auto Repair</h3>
-            <p class="work-result">Profile views up 4.1x in 90 days with zero paid ad spend.</p>
-          </div>
+        <div class="work-card is-coming-soon" id="gbp-coming-soon" data-category="gbp">
+          <span class="coming-soon-icon"><i class="ph ph-map-pin"></i></span>
+          <h3>Google Business Profile</h3>
+          <p>Case studies coming soon &mdash; this discipline is next on our roadmap.</p>
         </div>
 
       </div>
@@ -355,6 +331,54 @@
     <li><i class="ph ph-check"></i>Guest list &amp; plus-one tracking, so nothing gets lost in group chats</li>
   </ul>
   <p class="body-text"><em>A live example is on the way &mdash; we'll drop the link here the moment it's ready.</em></p>
+</template>
+
+<template id="tpl-welcome">
+  <div class="modal-card-top">
+    <span class="service-icon"><i class="ph ph-hand-waving"></i></span>
+    <button class="btn-icon-circle" data-modal-close type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+  </div>
+  <h3>Welcome Emails</h3>
+  <p class="body-text">A welcome email is the very first message a new subscriber or customer gets from you, and it sets the tone for everything that follows. Ours are warm, on-brand, and built to arrive within minutes of sign-up, not days later, turning a cold sign-up into someone who actually looks forward to hearing from you.</p>
+  <ul class="modal-list">
+    <li><i class="ph ph-check"></i>Sent automatically the moment someone joins your list</li>
+    <li><i class="ph ph-check"></i>Introduces your brand, story and what to expect next</li>
+    <li><i class="ph ph-check"></i>Often includes a first-purchase incentive or a warm freebie</li>
+    <li><i class="ph ph-check"></i>Sets up the relationship for every email that follows</li>
+  </ul>
+  <p class="body-text"><em>Photos of real welcome email examples are coming soon.</em></p>
+</template>
+
+<template id="tpl-thank-you">
+  <div class="modal-card-top">
+    <span class="service-icon"><i class="ph ph-heart"></i></span>
+    <button class="btn-icon-circle" data-modal-close type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+  </div>
+  <h3>Thank You Emails</h3>
+  <p class="body-text">A thank-you email confirms an order or booking and reassures the customer they made the right call. It's often the most-opened email in any sequence, since people genuinely want to know their purchase went through &mdash; so it's worth making it feel personal instead of like a robotic receipt.</p>
+  <ul class="modal-list">
+    <li><i class="ph ph-check"></i>Sent the moment an order or booking is confirmed</li>
+    <li><i class="ph ph-check"></i>Confirms the details and sets expectations for what's next</li>
+    <li><i class="ph ph-check"></i>A natural place for a friendly upsell or referral nudge</li>
+    <li><i class="ph ph-check"></i>Builds trust right when a customer is paying closest attention</li>
+  </ul>
+  <p class="body-text"><em>Photos of real thank-you email examples are coming soon.</em></p>
+</template>
+
+<template id="tpl-trade">
+  <div class="modal-card-top">
+    <span class="service-icon is-2" style="background:var(--accent-2-dim); color:var(--accent-2-bright);"><i class="ph ph-wrench"></i></span>
+    <button class="btn-icon-circle" data-modal-close type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+  </div>
+  <h3>Trade &amp; Local Business Websites</h3>
+  <p class="body-text">Trade and local service businesses &mdash; electricians, plumbers, builders and similar &mdash; need a website that answers one question fast: can you help me, and how do I book you? We're currently building an example for an electrician: clear service areas, a simple quote-request form, and photos of completed jobs, all built to turn a worried homeowner into a booked call-out.</p>
+  <ul class="modal-list">
+    <li><i class="ph ph-check"></i>Clear list of services and coverage area</li>
+    <li><i class="ph ph-check"></i>A simple call-out / quote-request form up front</li>
+    <li><i class="ph ph-check"></i>Before-and-after photos of completed jobs</li>
+    <li><i class="ph ph-check"></i>Genuine reviews and trust signals near the call-to-action</li>
+  </ul>
+  <p class="body-text"><em>We're building this one for a real electrician client &mdash; the link goes here as soon as it's live.</em></p>
 </template>
 
 <script src="js/main.js"></script>

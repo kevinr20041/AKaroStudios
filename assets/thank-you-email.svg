@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1125">
+  <defs>
+    <radialGradient id="glowT" cx="50%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#b23a52" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#b23a52" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cardT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#211b17"/>
+      <stop offset="100%" stop-color="#171310"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="1125" fill="#131110"/>
+  <rect width="900" height="1125" fill="url(#glowT)"/>
+
+  <!-- email card -->
+  <rect x="90" y="330" width="720" height="500" rx="22" fill="url(#cardT)" stroke="#3a322a" stroke-width="1.5"/>
+
+  <!-- sender row -->
+  <circle cx="160" cy="400" r="26" fill="none" stroke="#d75872" stroke-width="1.5"/>
+  <text x="160" y="408" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="19" fill="#d75872">AK</text>
+  <text x="200" y="396" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#f0ebe1">AKaro Studios</text>
+  <text x="200" y="418" font-family="Arial, sans-serif" font-size="13" letter-spacing="1" fill="#847c6d">TO: VALUED CUSTOMER</text>
+
+  <line x1="130" y1="450" x2="750" y2="450" stroke="#3a322a" stroke-width="1"/>
+
+  <!-- icon medallion -->
+  <circle cx="450" cy="545" r="46" fill="#2a2119" stroke="#b23a52" stroke-width="1.5"/>
+  <path d="M450,522 c-14,-14 -38,-4 -38,14 c0,16 20,28 38,42 c18,-14 38,-26 38,-42 c0,-18 -24,-28 -38,-14z" fill="#d75872"/>
+
+  <text x="450" y="655" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="42" fill="#f0ebe1">Thank you!</text>
+
+  <text x="450" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#bdb4a4">Your order is confirmed and on its way.</text>
+  <text x="450" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#bdb4a4">We&#8217;ll send tracking details shortly.</text>
+
+  <rect x="330" y="765" width="240" height="52" rx="26" fill="#b23a52"/>
+  <text x="450" y="798" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#f5f1e8">View Your Order</text>
+
+  <text x="450" y="990" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="5" fill="#8f8574">EMAIL MARKETING &#183; POST-PURCHASE FLOW</text>
+</svg>
