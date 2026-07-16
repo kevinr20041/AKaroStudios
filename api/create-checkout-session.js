@@ -50,7 +50,11 @@ module.exports = async (req, res) => {
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
-      payment_method_types: ['card'],
+      // No payment_method_types here on purpose: omitting it lets Stripe's
+      // dynamic payment methods pick the best options per customer (card,
+      // Apple Pay, Google Pay, etc.) based on currency, device and location.
+      // Manage which methods are eligible from the Stripe Dashboard instead:
+      // https://dashboard.stripe.com/settings/payment_methods
       line_items: [
         {
           price_data: {
