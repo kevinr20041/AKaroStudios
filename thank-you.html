@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - AKaro Studios</title>
-<meta name="description" content="Tell AKaro Studios about your business and your goals. We reply to every enquiry within one business day.">
+<title>You're Booked In - AKaro Studios</title>
+<meta name="description" content="Thanks for booking your website with AKaro Studios.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
 <link rel="stylesheet" href="css/style.css">
@@ -88,106 +88,17 @@
 
 <main>
 
-  <section class="page-hero">
-    <div class="container">
-      <div class="breadcrumb reveal"><a href="index.html">Home</a><i class="ph ph-caret-right"></i><span>Contact</span></div>
-      <h1 class="h1 reveal">Tell us about your business.</h1>
-      <p class="lede reveal">A short call tells us more than any form, but the form is a good place to start. We reply within one business day.</p>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="about-grid" style="grid-template-columns: 1fr 0.7fr; align-items:start;">
-
-        <div class="reveal">
-          <!--
-            This form validates client-side only. Wire it up to a real
-            endpoint (Formspree, Netlify Forms, or a backend route) before
-            launch so submissions actually reach your inbox.
-          -->
-          <form id="contact-form" data-contact-form novalidate>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="name">Full name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
-                <span class="error">Please enter your name.</span>
-              </div>
-              <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required>
-                <span class="error">Please enter a valid email.</span>
-              </div>
-              <div class="form-field">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Your business name" required>
-                <span class="error">Please enter your company name.</span>
-              </div>
-              <div class="form-field">
-                <label for="package">Interested in</label>
-                <select id="package" name="service">
-                  <option value="not-sure">Not sure yet</option>
-                  <option value="email">Email Marketing</option>
-                  <option value="website">Website Creation</option>
-                  <option value="gbp">Google Business Profile</option>
-                  <option value="launch-and-grow">Bundle: Launch &amp; Grow (Email + Website)</option>
-                  <option value="local-authority">Bundle: Local Authority (Email + GBP)</option>
-                  <option value="foundations">Bundle: Foundations (Website + GBP)</option>
-                  <option value="complete">Bundle: Complete Growth Studio (all three)</option>
-                </select>
-              </div>
-              <div class="form-field full">
-                <label for="message">Tell us about your business</label>
-                <textarea id="message" name="message" rows="5" maxlength="600" data-maxlen="600" placeholder="What are you hoping to fix or grow first?" required></textarea>
-                <span class="error">Let us know a little about your business.</span>
-                <span class="char-count">0 / 600</span>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:1.75rem;">Send message</button>
-            <div class="form-status" role="status"></div>
-          </form>
+  <section class="hero" style="min-height:70dvh;">
+    <div class="container" style="display:block; text-align:center; max-width:640px;">
+      <div class="reveal">
+        <span class="hero-visual-center-badge" style="position:static; width:80px; height:80px; margin-inline:auto; margin-bottom:2rem;"><i class="ph ph-check-bold"></i></span>
+        <span class="eyebrow">Payment received</span>
+        <h1 class="h1" style="margin-top:0.9rem;">You're booked in.</h1>
+        <p class="lede" style="margin-inline:auto; margin-top:1.25rem;">Thank you &mdash; your project is confirmed. A strategist will reach out by email within one business day to kick things off and collect anything we still need from you.</p>
+        <div class="hero-actions" style="justify-content:center; margin-top:2.5rem;">
+          <a href="index.html" class="btn btn-primary">Back to home</a>
+          <a href="work.html" class="btn btn-ghost">See our work</a>
         </div>
-
-        <div class="reveal" style="display:flex; flex-direction:column; gap:1.5rem;">
-          <div class="roadmap-card">
-            <i class="ph ph-envelope-simple-open" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Email us directly</h3>
-            <p class="body-text" style="margin-top:0.5rem;"><a href="mailto:hello@akarostudios.com" class="btn-text" data-copy="hello@akarostudios.com">hello@akarostudios.com</a></p>
-          </div>
-          <div class="roadmap-card">
-            <i class="ph ph-phone" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Call us</h3>
-            <p class="body-text" style="margin-top:0.5rem;"><a href="tel:+10000000000" class="btn-text" data-copy="+1 (000) 000-0000">+1 (000) 000-0000</a></p>
-          </div>
-          <div class="roadmap-card">
-            <i class="ph ph-clock" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Response time</h3>
-            <p class="body-text" style="margin-top:0.5rem;">Every enquiry gets a reply from a strategist within one business day.</p>
-          </div>
-          <div class="roadmap-card">
-            <i class="ph ph-package" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Not sure what you need?</h3>
-            <p class="body-text" style="margin-top:0.5rem;">Try our <a href="bundles.html#calculator" class="btn-text">instant pricing calculator</a> before you get in touch.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Find us</span>
-        <h2 class="h2">Follow along.</h2>
-        <p class="body-text" style="margin-inline:auto;">Behind-the-scenes builds, client wins and the occasional bad pun, on every platform we use.</p>
-      </div>
-      <div class="reveal" style="display:flex; justify-content:center; gap:0.9rem; flex-wrap:wrap;">
-        <a href="https://instagram.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-instagram-logo"></i> Instagram</a>
-        <a href="https://facebook.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-facebook-logo"></i> Facebook</a>
-        <a href="https://linkedin.com/company/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-        <a href="https://x.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-x-logo"></i> X</a>
-        <a href="https://tiktok.com/@akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-tiktok-logo"></i> TikTok</a>
       </div>
     </div>
   </section>

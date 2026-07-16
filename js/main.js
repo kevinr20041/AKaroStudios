@@ -563,7 +563,7 @@
     var tierBtns = calc.querySelectorAll('.calc-tier-btn');
     var activeTier = 'growth';
 
-    function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+    function fmt(n) { return '€' + n.toLocaleString('en-US'); }
 
     function renderCalc() {
       var selected = Array.prototype.slice.call(checks).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
@@ -589,7 +589,7 @@
       var parts = [];
       if (q.onetime) parts.push(fmt(q.onetime) + ' one-time');
       if (q.monthly) parts.push(fmt(q.monthly) + '/mo');
-      if (resultValue) resultValue.textContent = parts.join(' + ') || '$0';
+      if (resultValue) resultValue.textContent = parts.join(' + ') || '€0';
       if (resultSub) resultSub.textContent = selected.length + ' service' + (selected.length > 1 ? 's' : '') + ' · ' + PRICING.TIER_LABELS[activeTier] + ' tier';
 
       if (breakdown) {

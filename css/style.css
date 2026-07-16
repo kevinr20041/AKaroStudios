@@ -607,6 +607,8 @@ section { padding-block: var(--section-pad); }
 .orbit-node.dim { fill: var(--ink-faint); }
 .orbit-line { stroke: var(--accent-line); stroke-width: 1; }
 @keyframes spin { to { transform: rotate(360deg); } }
+#gs-submit .ph-circle-notch { display: inline-block; animation: spin 0.8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { #gs-submit .ph-circle-notch { animation: none; } }
 .float-slow { animation: floaty 7s ease-in-out infinite; }
 .float-slower { animation: floaty 9s ease-in-out infinite; animation-delay: -3s; }
 @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - AKaro Studios</title>
-<meta name="description" content="Tell AKaro Studios about your business and your goals. We reply to every enquiry within one business day.">
+<title>Get Started - AKaro Studios</title>
+<meta name="description" content="Tell us about your project and book your website package securely online, card or Apple Pay.">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css">
 <link rel="stylesheet" href="css/style.css">
@@ -90,9 +90,9 @@
 
   <section class="page-hero">
     <div class="container">
-      <div class="breadcrumb reveal"><a href="index.html">Home</a><i class="ph ph-caret-right"></i><span>Contact</span></div>
-      <h1 class="h1 reveal">Tell us about your business.</h1>
-      <p class="lede reveal">A short call tells us more than any form, but the form is a good place to start. We reply within one business day.</p>
+      <div class="breadcrumb reveal"><a href="index.html">Home</a><i class="ph ph-caret-right"></i><a href="services/website-creation.html">Website Creation</a><i class="ph ph-caret-right"></i><span>Get Started</span></div>
+      <h1 class="h1 reveal">Tell us about your project.</h1>
+      <p class="lede reveal">A few quick questions, then straight to secure payment. We'll be in touch within one business day to kick things off.</p>
     </div>
   </section>
 
@@ -101,93 +101,96 @@
       <div class="about-grid" style="grid-template-columns: 1fr 0.7fr; align-items:start;">
 
         <div class="reveal">
-          <!--
-            This form validates client-side only. Wire it up to a real
-            endpoint (Formspree, Netlify Forms, or a backend route) before
-            launch so submissions actually reach your inbox.
-          -->
-          <form id="contact-form" data-contact-form novalidate>
+          <div id="package-missing" class="form-status" style="display:none; background:var(--accent-dim); border-color:var(--accent-line);">
+            <i class="ph ph-warning-circle"></i>
+            <span>We couldn't tell which package you picked. <a href="services/website-creation.html" class="btn-text">Choose a package</a> to get started.</span>
+          </div>
+
+          <form id="get-started-form" novalidate>
+            <div class="pricing-card" id="package-summary" style="margin-bottom:2rem;">
+              <span class="pricing-card-tag tag-pill" id="package-tag">Your package</span>
+              <h3 class="pricing-name" id="package-name">&nbsp;</h3>
+              <div class="pricing-price" id="package-price">&nbsp;</div>
+            </div>
+
             <div class="form-grid">
               <div class="form-field">
-                <label for="name">Full name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required>
+                <label for="gs-name">Full name</label>
+                <input type="text" id="gs-name" name="name" placeholder="Your name" required>
                 <span class="error">Please enter your name.</span>
               </div>
               <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                <label for="gs-email">Email</label>
+                <input type="email" id="gs-email" name="email" placeholder="you@company.com" required>
                 <span class="error">Please enter a valid email.</span>
               </div>
               <div class="form-field">
-                <label for="company">Company</label>
-                <input type="text" id="company" name="company" placeholder="Your business name" required>
-                <span class="error">Please enter your company name.</span>
+                <label for="gs-phone">Phone / WhatsApp</label>
+                <input type="tel" id="gs-phone" name="phone" placeholder="Your number" required>
+                <span class="error">Please enter a phone number.</span>
               </div>
               <div class="form-field">
-                <label for="package">Interested in</label>
-                <select id="package" name="service">
-                  <option value="not-sure">Not sure yet</option>
-                  <option value="email">Email Marketing</option>
-                  <option value="website">Website Creation</option>
-                  <option value="gbp">Google Business Profile</option>
-                  <option value="launch-and-grow">Bundle: Launch &amp; Grow (Email + Website)</option>
-                  <option value="local-authority">Bundle: Local Authority (Email + GBP)</option>
-                  <option value="foundations">Bundle: Foundations (Website + GBP)</option>
-                  <option value="complete">Bundle: Complete Growth Studio (all three)</option>
-                </select>
+                <label for="gs-business">Business or project name</label>
+                <input type="text" id="gs-business" name="business" placeholder="Your business name" required>
+                <span class="error">Please enter your business name.</span>
               </div>
               <div class="form-field full">
-                <label for="message">Tell us about your business</label>
-                <textarea id="message" name="message" rows="5" maxlength="600" data-maxlen="600" placeholder="What are you hoping to fix or grow first?" required></textarea>
+                <label for="gs-description">What's the site for?</label>
+                <textarea id="gs-description" name="description" rows="3" maxlength="600" data-maxlen="600" placeholder="A couple of sentences about your business and what you want the site to do" required></textarea>
                 <span class="error">Let us know a little about your business.</span>
                 <span class="char-count">0 / 600</span>
               </div>
+              <div class="form-field full">
+                <label for="gs-pages">Which pages or sections do you need?</label>
+                <input type="text" id="gs-pages" name="pages" placeholder="e.g. Home, About, Services, Gallery, Contact">
+                <span class="hint">Not sure? Leave it blank and we'll suggest a structure.</span>
+              </div>
+              <div class="form-field">
+                <label for="gs-logo">Do you have a logo?</label>
+                <select id="gs-logo" name="logo">
+                  <option value="yes">Yes, I'll send it over</option>
+                  <option value="no">No, I need one designed</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="gs-domain">Do you have a domain name?</label>
+                <select id="gs-domain" name="domain">
+                  <option value="yes">Yes, I already own one</option>
+                  <option value="no">No, I need help choosing one</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="gs-notes">Anything else we should know?</label>
+                <textarea id="gs-notes" name="notes" rows="3" maxlength="600" data-maxlen="600" placeholder="Links to sites you like, a deadline, or anything else useful"></textarea>
+                <span class="char-count">0 / 600</span>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="margin-top:1.75rem;">Send message</button>
-            <div class="form-status" role="status"></div>
+
+            <button type="submit" class="btn btn-primary" id="gs-submit" style="margin-top:1.75rem; width:100%;">
+              <i class="ph ph-lock-simple"></i> Continue to secure payment
+            </button>
+            <p style="text-align:center; font-size:0.8rem; color:var(--ink-faint); margin-top:1rem;">
+              <i class="ph ph-shield-check"></i> Payments are processed securely by Stripe. Card, Apple Pay and Google Pay accepted.
+            </p>
+            <div class="form-status" role="status" id="gs-status"></div>
           </form>
         </div>
 
         <div class="reveal" style="display:flex; flex-direction:column; gap:1.5rem;">
           <div class="roadmap-card">
-            <i class="ph ph-envelope-simple-open" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Email us directly</h3>
-            <p class="body-text" style="margin-top:0.5rem;"><a href="mailto:hello@akarostudios.com" class="btn-text" data-copy="hello@akarostudios.com">hello@akarostudios.com</a></p>
-          </div>
-          <div class="roadmap-card">
-            <i class="ph ph-phone" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Call us</h3>
-            <p class="body-text" style="margin-top:0.5rem;"><a href="tel:+10000000000" class="btn-text" data-copy="+1 (000) 000-0000">+1 (000) 000-0000</a></p>
-          </div>
-          <div class="roadmap-card">
             <i class="ph ph-clock" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Response time</h3>
-            <p class="body-text" style="margin-top:0.5rem;">Every enquiry gets a reply from a strategist within one business day.</p>
+            <h3 style="font-size:1.2rem; margin-top:1rem;">What happens next</h3>
+            <p class="body-text" style="margin-top:0.5rem;">Once payment goes through, a strategist reaches out within one business day to confirm the details and get your project moving.</p>
           </div>
           <div class="roadmap-card">
-            <i class="ph ph-package" style="font-size:1.6rem; color:var(--accent-bright);"></i>
-            <h3 style="font-size:1.2rem; margin-top:1rem;">Not sure what you need?</h3>
-            <p class="body-text" style="margin-top:0.5rem;">Try our <a href="bundles.html#calculator" class="btn-text">instant pricing calculator</a> before you get in touch.</p>
+            <i class="ph ph-question" style="font-size:1.6rem; color:var(--accent-bright);"></i>
+            <h3 style="font-size:1.2rem; margin-top:1rem;">Not ready to pay yet?</h3>
+            <p class="body-text" style="margin-top:0.5rem;">No problem &mdash; <a href="contact.html" class="btn-text">get a quote</a> instead and we'll talk it through first.</p>
           </div>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="section-head center reveal">
-        <span class="eyebrow">Find us</span>
-        <h2 class="h2">Follow along.</h2>
-        <p class="body-text" style="margin-inline:auto;">Behind-the-scenes builds, client wins and the occasional bad pun, on every platform we use.</p>
-      </div>
-      <div class="reveal" style="display:flex; justify-content:center; gap:0.9rem; flex-wrap:wrap;">
-        <a href="https://instagram.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-instagram-logo"></i> Instagram</a>
-        <a href="https://facebook.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-facebook-logo"></i> Facebook</a>
-        <a href="https://linkedin.com/company/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-linkedin-logo"></i> LinkedIn</a>
-        <a href="https://x.com/akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-x-logo"></i> X</a>
-        <a href="https://tiktok.com/@akarostudios" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-tiktok-logo"></i> TikTok</a>
       </div>
     </div>
   </section>
@@ -245,5 +248,6 @@
 <div class="toast" role="status" aria-live="polite"></div>
 
 <script src="js/main.js"></script>
+<script src="js/get-started.js"></script>
 </body>
 </html>
