@@ -3,24 +3,26 @@
 window.AKARO_PRICING = (function () {
   'use strict';
 
+  // Launch pricing: intentionally below industry average while AKaro Studios
+  // builds its first reviews. Raise once bookings and reviews come in.
   var SERVICES = {
     email: {
       label: 'Email Marketing',
       icon: 'ph-envelope-simple-open',
       billing: 'monthly',
-      tiers: { starter: 900, growth: 1800, pro: 3200 }
+      tiers: { starter: 500, growth: 950, pro: 1800 }
     },
     website: {
       label: 'Website Creation',
       icon: 'ph-browser',
       billing: 'onetime',
-      tiers: { starter: 1900, growth: 4200, pro: 8500 }
+      tiers: { starter: 750, growth: 1500, pro: 2900 }
     },
     gbp: {
       label: 'Google Business Profile',
       icon: 'ph-map-pin',
       billing: 'monthly',
-      tiers: { starter: 350, growth: 650, pro: 1100 }
+      tiers: { starter: 199, growth: 399, pro: 699 }
     }
   };
 
