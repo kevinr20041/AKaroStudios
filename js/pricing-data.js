@@ -12,11 +12,15 @@ window.AKARO_PRICING = (function () {
       billing: 'monthly',
       tiers: { starter: 500, growth: 950, pro: 1800 }
     },
+    // Website Creation now sells as 10 distinct site types (see the service
+    // page); these three tiers are representative price points used only for
+    // the bundle calculator's math: Starter = Trade & Simple Business,
+    // Growth = Growing Business, Pro = Advanced Custom Website.
     website: {
       label: 'Website Creation',
       icon: 'ph-browser',
       billing: 'onetime',
-      tiers: { starter: 750, growth: 1500, pro: 2900 }
+      tiers: { starter: 125, growth: 425, pro: 950 }
     },
     gbp: {
       label: 'Google Business Profile',
