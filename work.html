@@ -143,11 +143,14 @@
           </div>
         </button>
 
-        <div class="work-card is-coming-soon" id="website-next" data-category="website">
-          <span class="coming-soon-icon"><i class="ph ph-browser"></i></span>
-          <h3>More Websites Coming Soon</h3>
-          <p>The next build starts once the trade site above is finished.</p>
-        </div>
+        <button type="button" class="work-card" id="author-website" data-category="website" data-open-modal="tpl-author-website">
+          <img src="assets/author-photo.jpg" alt="Portrait of a professional writer" loading="lazy" width="900" height="702">
+          <div class="work-overlay">
+            <span class="work-tag">Website Creation</span>
+            <h3>Personal &amp; Author Websites</h3>
+            <p class="work-result">A live site for a journalist and author &mdash; click to see the full feature list.</p>
+          </div>
+        </button>
 
         <button type="button" class="work-card" id="wedding" data-category="website" data-open-modal="tpl-wedding">
           <img src="assets/wedding-photo.jpg" alt="Newly married couple kissing as guests throw petals" loading="lazy" width="900" height="1350">
@@ -379,6 +382,22 @@
     <li><i class="ph ph-check"></i>Genuine reviews and trust signals near the call-to-action</li>
   </ul>
   <a href="https://bullpowersolutions.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Check out our example <i class="ph ph-arrow-up-right"></i></a>
+</template>
+
+<template id="tpl-author-website">
+  <div class="modal-card-top">
+    <span class="service-icon is-2" style="background:var(--accent-2-dim); color:var(--accent-2-bright);"><i class="ph ph-pen-nib"></i></span>
+    <button class="btn-icon-circle" data-modal-close type="button" aria-label="Close"><i class="ph ph-x"></i></button>
+  </div>
+  <h3>Personal &amp; Author Websites</h3>
+  <p class="body-text">Writers, journalists and public figures need a site that reads like a proper introduction: a real bio, a career history, published work and press, presented with the same care as the writing itself. This live example was built for a journalist, broadcaster and novelist &mdash; his full career, books and press coverage in one place.</p>
+  <ul class="modal-list">
+    <li><i class="ph ph-check"></i>A proper bio and career timeline, not just a paragraph</li>
+    <li><i class="ph ph-check"></i>Published work with direct links to buy or read</li>
+    <li><i class="ph ph-check"></i>Press &amp; media coverage collected in one place</li>
+    <li><i class="ph ph-check"></i>A photo gallery for events and highlights</li>
+  </ul>
+  <a href="https://kierandevaney.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Check out our example <i class="ph ph-arrow-up-right"></i></a>
 </template>
 
 <script src="js/main.js"></script>
