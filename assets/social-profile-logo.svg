@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+  <rect width="1080" height="1080" fill="#0c0b0a"/>
+  <circle cx="540" cy="540" r="523" fill="#0c0b0a" stroke="#b23a52" stroke-width="26"/>
+  <text x="540" y="675" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="371" fill="#d75872">AK</text>
+</svg>
