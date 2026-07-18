@@ -298,8 +298,9 @@
     { title: 'Email Marketing', tag: 'Services', excerpt: 'Strategy, flows, copy and design that turn your list into revenue.', url: 'services/email-marketing.html' },
     { title: 'Website Creation', tag: 'Services', excerpt: 'Fast, on-brand websites built to convert, not just look nice.', url: 'services/website-creation.html' },
     { title: 'Google Business Profile Optimization', tag: 'Services', excerpt: 'Win the map pack and turn local searches into calls and visits.', url: 'services/google-business.html' },
-    { title: 'Email Marketing packages', tag: 'Packages', excerpt: 'Starter, Growth and Pro retainers for campaigns and flows.', url: 'services/email-marketing.html#packages' },
-    { title: 'Website Creation packages', tag: 'Packages', excerpt: 'Launch, Growth and Custom builds, one-time investment.', url: 'services/website-creation.html#packages' },
+    { title: 'Email list setup & lead generation', tag: 'Packages', excerpt: 'One-time Mailchimp and landing page setup, from EUR100.', url: 'services/email-marketing.html#packages' },
+    { title: 'Email Marketing retainers', tag: 'Packages', excerpt: 'Ongoing Starter, Growth and Pro campaign management.', url: 'services/email-marketing.html#retainers' },
+    { title: 'Website Creation packages', tag: 'Packages', excerpt: 'Ten site types from a simple bio page to full custom builds, all one-time.', url: 'services/website-creation.html#packages' },
     { title: 'Google Business Profile packages', tag: 'Packages', excerpt: 'Starter, Growth and Pro local optimisation retainers.', url: 'services/google-business.html#packages' },
     { title: 'Bundle your services', tag: 'Bundles', excerpt: 'Pair any two services, or get all three, at a bundled rate.', url: 'bundles.html' },
     { title: 'Build your own bundle (calculator)', tag: 'Bundles', excerpt: 'Pick your services and tier for an instant estimate.', url: 'bundles.html#calculator' },
@@ -308,7 +309,7 @@
     { title: 'About AKaro Studios', tag: 'About', excerpt: 'Why we merged three disciplines under one studio.', url: 'about.html' },
     { title: 'How long until I see results?', tag: 'FAQ', excerpt: 'What to expect in the first 90 days.', url: 'faq.html#timeline' },
     { title: 'Do you offer bundle pricing?', tag: 'FAQ', excerpt: 'How combined-service discounts work.', url: 'faq.html#bundles' },
-    { title: 'Book a call', tag: 'Contact', excerpt: 'Start a conversation about your business.', url: 'contact.html' }
+    { title: 'Get a quote', tag: 'Contact', excerpt: 'Start a conversation about your business.', url: 'contact.html' }
   ];
 
   var exploreOverlay = document.querySelector('.explore-overlay');
