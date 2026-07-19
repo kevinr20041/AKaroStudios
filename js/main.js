@@ -453,12 +453,45 @@
         }
         return;
       }
-      if (status) {
-        status.innerHTML = '<i class="ph ph-check-circle"></i><span>Thank you, your message is in. We reply to every enquiry within one business day.</span>';
-        status.classList.add('is-visible');
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="ph ph-circle-notch" style="animation:spin 0.8s linear infinite;"></i> Sending...';
       }
-      showToast('Message sent — we’ll be in touch soon', 'ph-paper-plane-tilt');
-      contactForm.reset();
+      var payload = {
+        name: contactForm.querySelector('#name') ? contactForm.querySelector('#name').value.trim() : '',
+        email: contactForm.querySelector('#email') ? contactForm.querySelector('#email').value.trim() : '',
+        company: contactForm.querySelector('#company') ? contactForm.querySelector('#company').value.trim() : '',
+        service: contactForm.querySelector('#package') ? contactForm.querySelector('#package').value : '',
+        message: contactForm.querySelector('#message') ? contactForm.querySelector('#message').value.trim() : ''
+      };
+      fetch('/api/contact-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(r); })
+        .then(function () {
+          if (status) {
+            status.innerHTML = '<i class="ph ph-check-circle"></i><span>Thank you, your message is in. We reply to every enquiry within one business day.</span>';
+            status.classList.add('is-visible');
+          }
+          showToast('Message sent — we’ll be in touch soon', 'ph-paper-plane-tilt');
+          contactForm.reset();
+        })
+        .catch(function () {
+          if (status) {
+            status.innerHTML = '<i class="ph ph-warning-circle"></i><span>Something went wrong sending that. Please call or WhatsApp <a href="tel:+353858786327" class="btn-text">085 878 6327</a> instead.</span>';
+            status.classList.add('is-visible');
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+          }
+        });
     });
   });
 

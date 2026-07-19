@@ -961,6 +961,9 @@ footer {
   font-size: 0.82rem; color: var(--ink-faint);
   flex-wrap: wrap; gap: 1rem;
 }
+.footer-legal { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.footer-legal a { color: var(--ink-faint); }
+.footer-legal a:hover { color: var(--ink); }
 @media (max-width: 980px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
