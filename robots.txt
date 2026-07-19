@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://akaro-studios.vercel.app/sitemap.xml
+Sitemap: https://akarostudios.com/sitemap.xml
