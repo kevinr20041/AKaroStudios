@@ -596,13 +596,21 @@
     var PRICING = window.AKARO_PRICING;
     var checks = calc.querySelectorAll('.calc-check input');
     var tierBtns = calc.querySelectorAll('.calc-tier-btn');
+    var websiteSelect = calc.querySelector('[data-website-select]');
     var activeTier = 'growth';
 
     function fmt(n) { return '€' + n.toLocaleString('en-US'); }
 
+    function currentWebsiteKey() {
+      return websiteSelect ? websiteSelect.value : 'trade';
+    }
+
     function renderCalc() {
       var selected = Array.prototype.slice.call(checks).filter(function (c) { return c.checked; }).map(function (c) { return c.value; });
       checks.forEach(function (c) { c.closest('.calc-check').classList.toggle('is-checked', c.checked); });
+
+      var websiteRow = calc.querySelector('[data-website-row]');
+      if (websiteRow) websiteRow.style.display = selected.indexOf('website') !== -1 ? 'flex' : 'none';
 
       var resultValue = calc.querySelector('.calc-result-value');
       var resultSub = calc.querySelector('.calc-result-sub');
@@ -619,19 +627,26 @@
       if (resultBody) resultBody.style.display = '';
       if (empty) empty.style.display = 'none';
 
-      var q = PRICING.quote(selected, activeTier);
+      var q = PRICING.quote(selected, activeTier, currentWebsiteKey());
 
       var parts = [];
       if (q.onetime) parts.push(fmt(q.onetime) + ' one-time');
       if (q.monthly) parts.push(fmt(q.monthly) + '/mo');
       if (resultValue) resultValue.textContent = parts.join(' + ') || '€0';
-      if (resultSub) resultSub.textContent = selected.length + ' service' + (selected.length > 1 ? 's' : '') + ' · ' + PRICING.TIER_LABELS[activeTier] + ' tier';
+      var retainerCount = selected.filter(function (k) { return k !== 'website'; }).length;
+      var subParts = [selected.length + ' service' + (selected.length > 1 ? 's' : '')];
+      if (retainerCount) subParts.push(PRICING.TIER_LABELS[activeTier] + ' tier');
+      if (resultSub) resultSub.textContent = subParts.join(' · ');
 
       if (breakdown) {
         breakdown.innerHTML = selected.map(function (key) {
+          if (key === 'website') {
+            var product = PRICING.getWebsiteProduct(currentWebsiteKey());
+            return '<div class="calc-breakdown-row"><span>' + product.name + '</span><span>' + fmt(product.price) + ' one-time</span></div>';
+          }
           var svc = PRICING.SERVICES[key];
           var price = svc.tiers[activeTier];
-          return '<div class="calc-breakdown-row"><span>' + svc.label + '</span><span>' + fmt(price) + (svc.billing === 'onetime' ? ' one-time' : '/mo') + '</span></div>';
+          return '<div class="calc-breakdown-row"><span>' + svc.label + '</span><span>' + fmt(price) + '/mo</span></div>';
         }).join('');
       }
 
@@ -649,6 +664,7 @@
     }
 
     checks.forEach(function (c) { c.addEventListener('change', renderCalc); });
+    if (websiteSelect) websiteSelect.addEventListener('change', renderCalc);
     tierBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         tierBtns.forEach(function (b) { b.classList.remove('is-active'); });

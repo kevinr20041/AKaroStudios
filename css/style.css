@@ -1145,6 +1145,14 @@ footer {
 .calc-check .c-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--surface-hi); color: var(--accent-bright); flex-shrink: 0; }
 .calc-check .c-label { font-weight: 600; font-size: 0.92rem; flex: 1; }
 .calc-check .c-price { font-size: 0.8rem; color: var(--ink-faint); }
+.calc-website-row { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.7rem; padding: 0.9rem 1rem; border: 1px dashed var(--border-strong); border-radius: var(--radius-sm); }
+.calc-website-row span { font-size: 0.8rem; color: var(--ink-faint); }
+.calc-website-row select {
+  background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem; font-size: 0.92rem; color: var(--ink);
+}
+.calc-website-row select:focus { outline: none; border-color: var(--accent-bright); }
+.calc-tiers-hint { font-size: 0.8rem; color: var(--ink-faint); margin-top: 0.5rem; }
 .calc-tiers { display: flex; gap: 0.6rem; }
 .calc-tier-btn {
   flex: 1; padding: 0.7rem 0.5rem; text-align: center; border: 1px solid var(--border-strong); border-radius: var(--radius-md);

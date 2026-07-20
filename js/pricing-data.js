@@ -5,22 +5,16 @@ window.AKARO_PRICING = (function () {
 
   // Launch pricing: intentionally below industry average while AKaro Studios
   // builds its first reviews. Raise once bookings and reviews come in.
+  // Email Marketing and Google Business Profile are ongoing retainers sold
+  // in Starter/Growth/Pro tiers. Website Creation is sold as 10 distinct
+  // one-time site types instead (see services/website-creation.html), so it
+  // isn't tiered - the calculator lets people pick the exact product.
   var SERVICES = {
     email: {
       label: 'Email Marketing',
       icon: 'ph-envelope-simple-open',
       billing: 'monthly',
       tiers: { starter: 500, growth: 950, pro: 1800 }
-    },
-    // Website Creation now sells as 10 distinct site types (see the service
-    // page); these three tiers are representative price points used only for
-    // the bundle calculator's math: Starter = Trade & Simple Business,
-    // Growth = Growing Business, Pro = Advanced Custom Website.
-    website: {
-      label: 'Website Creation',
-      icon: 'ph-browser',
-      billing: 'onetime',
-      tiers: { starter: 125, growth: 425, pro: 950 }
     },
     gbp: {
       label: 'Google Business Profile',
@@ -30,20 +24,41 @@ window.AKARO_PRICING = (function () {
     }
   };
 
+  var WEBSITE_PRODUCTS = [
+    { key: 'bio', name: 'Personal Bio Website', price: 50 },
+    { key: 'portfolio', name: 'Portfolio Website', price: 100 },
+    { key: 'trade', name: 'Trade & Simple Business Website', price: 125 },
+    { key: 'restaurant', name: 'Restaurant & Café Website', price: 175 },
+    { key: 'local-service', name: 'Local Service Business Website', price: 225 },
+    { key: 'consultant', name: 'Professional & Consultant Website', price: 300 },
+    { key: 'growing-business', name: 'Growing Business Website', price: 425 },
+    { key: 'store-starter', name: 'Online Store Starter', price: 650 },
+    { key: 'advanced-custom', name: 'Advanced Custom Website', price: 950 },
+    { key: 'full-custom', name: 'Full Custom / E-commerce Website', price: 1500 }
+  ];
+
   var TIER_LABELS = { starter: 'Starter', growth: 'Growth', pro: 'Pro' };
 
   // Bundle discount applied to the sum of one-time fees and, separately,
   // to the sum of monthly fees, based on how many services are selected.
   var DISCOUNTS = { 2: 0.12, 3: 0.20 };
 
-  function quote(selectedKeys, tier) {
+  function getWebsiteProduct(key) {
+    var product = null;
+    WEBSITE_PRODUCTS.forEach(function (p) { if (p.key === key) product = p; });
+    return product || WEBSITE_PRODUCTS[2]; // default: Trade & Simple Business Website
+  }
+
+  function quote(selectedKeys, tier, websiteProductKey) {
     var onetime = 0, monthly = 0;
     selectedKeys.forEach(function (key) {
+      if (key === 'website') {
+        onetime += getWebsiteProduct(websiteProductKey).price;
+        return;
+      }
       var svc = SERVICES[key];
       if (!svc) return;
-      var price = svc.tiers[tier] || 0;
-      if (svc.billing === 'onetime') onetime += price;
-      else monthly += price;
+      monthly += svc.tiers[tier] || 0;
     });
     var count = selectedKeys.length;
     var discount = DISCOUNTS[count] || 0;
@@ -61,5 +76,12 @@ window.AKARO_PRICING = (function () {
     };
   }
 
-  return { SERVICES: SERVICES, TIER_LABELS: TIER_LABELS, DISCOUNTS: DISCOUNTS, quote: quote };
+  return {
+    SERVICES: SERVICES,
+    WEBSITE_PRODUCTS: WEBSITE_PRODUCTS,
+    TIER_LABELS: TIER_LABELS,
+    DISCOUNTS: DISCOUNTS,
+    getWebsiteProduct: getWebsiteProduct,
+    quote: quote
+  };
 })();
