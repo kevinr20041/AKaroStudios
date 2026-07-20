@@ -36,9 +36,10 @@ window.AKARO_PRICING = (function () {
 
   var TIER_LABELS = { starter: 'Starter', growth: 'Growth', pro: 'Pro' };
 
-  // Bundle discount applied to the sum of one-time fees and, separately,
-  // to the sum of monthly fees, based on how many services are selected.
-  var DISCOUNTS = { 2: 0.12, 3: 0.20 };
+  // Flat bundle discount applied to the sum of one-time fees and,
+  // separately, to the sum of monthly fees, whenever two or more services
+  // are selected together.
+  var DISCOUNTS = { 2: 0.20, 3: 0.20 };
 
   function getWebsiteProduct(key) {
     var product = null;
