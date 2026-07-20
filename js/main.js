@@ -302,7 +302,7 @@
     { title: 'Automation email packages', tag: 'Packages', excerpt: 'Ready-made sign-up, cart abandonment, review and win-back emails, from EUR50.', url: 'services/email-marketing.html#packages' },
     { title: 'Email Marketing retainers', tag: 'Packages', excerpt: 'Ongoing Starter, Growth and Pro campaign management.', url: 'services/email-marketing.html#retainers' },
     { title: 'Website Creation packages', tag: 'Packages', excerpt: 'Ten site types from a simple bio page to full custom builds, all one-time.', url: 'services/website-creation.html#packages' },
-    { title: 'Google Business Profile packages', tag: 'Packages', excerpt: 'Starter, Growth and Pro local optimisation retainers.', url: 'services/google-business.html#packages' },
+    { title: 'Google Business Profile packages', tag: 'Packages', excerpt: 'EUR150 one-time setup plus EUR20/month management.', url: 'services/google-business.html#packages' },
     { title: 'Bundle your services', tag: 'Bundles', excerpt: 'Pair any two services, or get all three, at a bundled rate.', url: 'bundles.html' },
     { title: 'Build your own bundle (calculator)', tag: 'Bundles', excerpt: 'Pick your services and tier for an instant estimate.', url: 'bundles.html#calculator' },
     { title: 'Selected work', tag: 'Work', excerpt: 'Real results across email, web and local search.', url: 'work.html' },
@@ -633,9 +633,9 @@
       if (q.onetime) parts.push(fmt(q.onetime) + ' one-time');
       if (q.monthly) parts.push(fmt(q.monthly) + '/mo');
       if (resultValue) resultValue.textContent = parts.join(' + ') || '€0';
-      var retainerCount = selected.filter(function (k) { return k !== 'website'; }).length;
+      var tieredCount = selected.filter(function (k) { return k === 'email'; }).length;
       var subParts = [selected.length + ' service' + (selected.length > 1 ? 's' : '')];
-      if (retainerCount) subParts.push(PRICING.TIER_LABELS[activeTier] + ' tier');
+      if (tieredCount) subParts.push(PRICING.TIER_LABELS[activeTier] + ' tier');
       if (resultSub) resultSub.textContent = subParts.join(' · ');
 
       if (breakdown) {
@@ -643,6 +643,9 @@
           if (key === 'website') {
             var product = PRICING.getWebsiteProduct(currentWebsiteKey());
             return '<div class="calc-breakdown-row"><span>' + product.name + '</span><span>' + fmt(product.price) + ' one-time</span></div>';
+          }
+          if (key === 'gbp') {
+            return '<div class="calc-breakdown-row"><span>' + PRICING.GBP.label + '</span><span>' + fmt(PRICING.GBP.setup) + ' setup + ' + fmt(PRICING.GBP.monthly) + '/mo</span></div>';
           }
           var svc = PRICING.SERVICES[key];
           var price = svc.tiers[activeTier];

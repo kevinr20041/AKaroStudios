@@ -5,22 +5,17 @@ window.AKARO_PRICING = (function () {
 
   // Launch pricing: intentionally below industry average while AKaro Studios
   // builds its first reviews. Raise once bookings and reviews come in.
-  // Email Marketing and Google Business Profile are ongoing retainers sold
-  // in Starter/Growth/Pro tiers. Website Creation is sold as 10 distinct
-  // one-time site types instead (see services/website-creation.html), so it
-  // isn't tiered - the calculator lets people pick the exact product.
+  // Email Marketing is an ongoing retainer sold in Starter/Growth/Pro tiers.
+  // Website Creation is sold as 10 distinct one-time site types instead (see
+  // services/website-creation.html), so it isn't tiered - the calculator lets
+  // people pick the exact product. Google Business Profile is a flat one-time
+  // setup fee plus a flat monthly management fee - also not tiered.
   var SERVICES = {
     email: {
       label: 'Email Marketing',
       icon: 'ph-envelope-simple-open',
       billing: 'monthly',
       tiers: { starter: 500, growth: 950, pro: 1800 }
-    },
-    gbp: {
-      label: 'Google Business Profile',
-      icon: 'ph-map-pin',
-      billing: 'monthly',
-      tiers: { starter: 199, growth: 399, pro: 699 }
     }
   };
 
@@ -36,6 +31,8 @@ window.AKARO_PRICING = (function () {
     { key: 'advanced-custom', name: 'Advanced Custom Website', price: 950 },
     { key: 'full-custom', name: 'Full Custom / E-commerce Website', price: 1500 }
   ];
+
+  var GBP = { label: 'Google Business Profile', icon: 'ph-map-pin', setup: 150, monthly: 20 };
 
   var TIER_LABELS = { starter: 'Starter', growth: 'Growth', pro: 'Pro' };
 
@@ -54,6 +51,11 @@ window.AKARO_PRICING = (function () {
     selectedKeys.forEach(function (key) {
       if (key === 'website') {
         onetime += getWebsiteProduct(websiteProductKey).price;
+        return;
+      }
+      if (key === 'gbp') {
+        onetime += GBP.setup;
+        monthly += GBP.monthly;
         return;
       }
       var svc = SERVICES[key];
@@ -79,6 +81,7 @@ window.AKARO_PRICING = (function () {
   return {
     SERVICES: SERVICES,
     WEBSITE_PRODUCTS: WEBSITE_PRODUCTS,
+    GBP: GBP,
     TIER_LABELS: TIER_LABELS,
     DISCOUNTS: DISCOUNTS,
     getWebsiteProduct: getWebsiteProduct,
