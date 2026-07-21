@@ -1068,6 +1068,11 @@ footer {
 .team-card .role { font-size: 0.82rem; color: var(--accent-bright); margin-top: 0.2rem; }
 @media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
 
+.founder-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 420px; margin: 2.5rem auto 0; }
+.team-avatar-icon { display: flex; align-items: center; justify-content: center; background: linear-gradient(160deg, var(--surface-hi) 0%, var(--surface) 100%); }
+.team-avatar-icon i { font-size: 2.4rem; color: var(--accent-bright); }
+@media (max-width: 480px) { .founder-grid { grid-template-columns: 1fr; max-width: 200px; } }
+
 /* ---------- pricing ---------- */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
 .pricing-grid.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-inline: auto; }
