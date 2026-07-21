@@ -1071,6 +1071,8 @@ footer {
 /* ---------- pricing ---------- */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: stretch; }
 .pricing-grid.cols-2 { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin-inline: auto; }
+.pricing-grid.cols-flex { display: flex; flex-wrap: wrap; justify-content: center; }
+.pricing-grid.cols-flex .pricing-card { flex: 1 1 240px; max-width: 280px; }
 .pricing-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1141,12 +1143,13 @@ footer {
   padding: clamp(1.75rem, 4vw, 3rem);
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem, 4vw, 3.5rem);
 }
+.calculator > * { min-width: 0; }
 .calc-group { margin-bottom: 1.75rem; }
 .calc-group:last-child { margin-bottom: 0; }
 .calc-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-faint); margin-bottom: 0.9rem; display: block; }
 .calc-services { display: flex; flex-direction: column; gap: 0.7rem; }
 .calc-check {
-  display: flex; align-items: center; gap: 0.9rem;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem;
   padding: 0.9rem 1.1rem; border: 1px solid var(--border-strong); border-radius: var(--radius-md);
   cursor: pointer; transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
 }
@@ -1155,7 +1158,8 @@ footer {
 .calc-check input { width: 18px; height: 18px; accent-color: var(--accent-bright); flex-shrink: 0; }
 .calc-check .c-icon { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--surface-hi); color: var(--accent-bright); flex-shrink: 0; }
 .calc-check .c-label { font-weight: 600; font-size: 0.92rem; flex: 1; }
-.calc-check .c-price { font-size: 0.8rem; color: var(--ink-faint); }
+.calc-check .c-price { font-size: 0.8rem; color: var(--ink-faint); flex-basis: 100%; padding-left: 3.4rem; }
+@media (min-width: 480px) { .calc-check .c-price { flex-basis: auto; padding-left: 0; } }
 .calc-website-row { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.7rem; padding: 0.9rem 1rem; border: 1px dashed var(--border-strong); border-radius: var(--radius-sm); }
 .calc-website-row span { font-size: 0.8rem; color: var(--ink-faint); }
 .calc-website-row select {

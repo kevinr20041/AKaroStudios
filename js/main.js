@@ -300,7 +300,7 @@
     { title: 'Google Business Profile Optimization', tag: 'Services', excerpt: 'Win the map pack and turn local searches into calls and visits.', url: 'services/google-business.html' },
     { title: 'Email list setup & lead generation', tag: 'Packages', excerpt: 'One-time Mailchimp and landing page setup, from EUR100.', url: 'services/email-marketing.html#packages' },
     { title: 'Automation email packages', tag: 'Packages', excerpt: 'Ready-made sign-up, cart abandonment, review and win-back emails, from EUR50.', url: 'services/email-marketing.html#packages' },
-    { title: 'Email Marketing retainers', tag: 'Packages', excerpt: 'Ongoing Starter, Growth and Pro campaign management.', url: 'services/email-marketing.html#retainers' },
+    { title: 'Monthly Email Marketing Plans', tag: 'Packages', excerpt: 'Newsletter, Bi-Weekly, Weekly, Growth and Premium campaign plans from EUR60/month.', url: 'services/email-marketing.html#retainers' },
     { title: 'Website Creation packages', tag: 'Packages', excerpt: 'Ten site types from a simple bio page to full custom builds, all one-time.', url: 'services/website-creation.html#packages' },
     { title: 'Google Business Profile packages', tag: 'Packages', excerpt: 'EUR150 one-time setup plus EUR20/month management.', url: 'services/google-business.html#packages' },
     { title: 'Bundle your services', tag: 'Bundles', excerpt: 'Pair any two services, or get all three, at a bundled rate.', url: 'bundles.html' },
@@ -597,7 +597,7 @@
     var checks = calc.querySelectorAll('.calc-check input');
     var tierBtns = calc.querySelectorAll('.calc-tier-btn');
     var websiteSelect = calc.querySelector('[data-website-select]');
-    var activeTier = 'growth';
+    var activeTier = 'weekly';
 
     function fmt(n) { return '€' + n.toLocaleString('en-US'); }
 

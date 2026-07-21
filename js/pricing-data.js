@@ -5,8 +5,9 @@ window.AKARO_PRICING = (function () {
 
   // Launch pricing: intentionally below industry average while AKaro Studios
   // builds its first reviews. Raise once bookings and reviews come in.
-  // Email Marketing is an ongoing retainer sold in Starter/Growth/Pro tiers.
-  // Website Creation is sold as 10 distinct one-time site types instead (see
+  // Email Marketing is sold as monthly campaign plans, by send volume
+  // (Newsletter/Bi-Weekly/Weekly/Growth/Premium). Website Creation is sold
+  // as 10 distinct one-time site types instead (see
   // services/website-creation.html), so it isn't tiered - the calculator lets
   // people pick the exact product. Google Business Profile is a flat one-time
   // setup fee plus a flat monthly management fee - also not tiered.
@@ -15,7 +16,7 @@ window.AKARO_PRICING = (function () {
       label: 'Email Marketing',
       icon: 'ph-envelope-simple-open',
       billing: 'monthly',
-      tiers: { starter: 500, growth: 950, pro: 1800 }
+      tiers: { newsletter: 60, biweekly: 110, weekly: 160, growth: 250, premium: 360 }
     }
   };
 
@@ -34,7 +35,7 @@ window.AKARO_PRICING = (function () {
 
   var GBP = { label: 'Google Business Profile', icon: 'ph-map-pin', setup: 150, monthly: 20 };
 
-  var TIER_LABELS = { starter: 'Starter', growth: 'Growth', pro: 'Pro' };
+  var TIER_LABELS = { newsletter: 'Newsletter', biweekly: 'Bi-Weekly', weekly: 'Weekly', growth: 'Growth', premium: 'Premium' };
 
   // Flat bundle discount applied to the sum of one-time fees and,
   // separately, to the sum of monthly fees, whenever two or more services
