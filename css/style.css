@@ -638,6 +638,7 @@ section { padding-block: var(--section-pad); }
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
 }
+.about-grid > * { min-width: 0; }
 .about-grid.split-narrow { grid-template-columns: 1fr 0.7fr; align-items: start; }
 .about-visual {
   border-radius: var(--radius-lg);
@@ -988,6 +989,8 @@ footer {
 .form-field.full { grid-column: 1 / -1; }
 .form-field label { font-size: 0.85rem; font-weight: 600; color: var(--ink-dim); }
 .form-field input, .form-field textarea, .form-field select {
+  width: 100%;
+  min-width: 0;
   background: var(--surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
