@@ -25,9 +25,31 @@ function truncate(value, max) {
   return String(value).slice(0, max);
 }
 
+const CANONICAL_ORIGIN = 'https://akarostudios.com';
+
+// Browsers send an Origin header on POST requests; reject any that names a
+// different site outright (a hidden cross-site form or script trying to
+// create checkout sessions on a visitor's behalf). Direct, non-browser
+// requests send no Origin header and are let through - this is a speed
+// bump against casual cross-site abuse, not an auth boundary.
+function isAllowedOrigin(origin) {
+  if (!origin) return true;
+  try {
+    const host = new URL(origin).hostname;
+    return host === 'akarostudios.com' || host.endsWith('.vercel.app');
+  } catch (e) {
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
+    return;
+  }
+
+  if (!isAllowedOrigin(req.headers.origin)) {
+    res.status(403).json({ error: 'Forbidden' });
     return;
   }
 
@@ -52,7 +74,7 @@ module.exports = async (req, res) => {
       return;
     }
 
-    const origin = req.headers.origin || `https://${req.headers.host}`;
+    const origin = req.headers.origin || CANONICAL_ORIGIN;
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',

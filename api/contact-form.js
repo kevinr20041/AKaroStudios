@@ -32,9 +32,30 @@ function sanitizeHeaderValue(value) {
   return String(value || '').replace(/[\r\n\t\x00-\x1F\x7F]/g, ' ').trim();
 }
 
+// Browsers send an Origin header on POST requests; reject any that names a
+// different site outright (a hidden cross-site form or script trying to
+// submit here on a visitor's behalf). Direct, non-browser requests (curl,
+// server-to-server) send no Origin header at all and are let through -
+// this is a speed bump against casual cross-site abuse, not an auth
+// boundary, since raw HTTP requests can always spoof headers.
+function isAllowedOrigin(origin) {
+  if (!origin) return true;
+  try {
+    const host = new URL(origin).hostname;
+    return host === 'akarostudios.com' || host.endsWith('.vercel.app');
+  } catch (e) {
+    return false;
+  }
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
+    return;
+  }
+
+  if (!isAllowedOrigin(req.headers.origin)) {
+    res.status(403).json({ error: 'Forbidden' });
     return;
   }
 
