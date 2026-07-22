@@ -5,6 +5,8 @@
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[^\s@<>()[\]\\,;:"]+$/;
+
 const PACKAGES = {
   bio: { name: 'Personal Bio Website', amount: 5000 },
   portfolio: { name: 'Portfolio Website', amount: 10000 },
@@ -43,6 +45,10 @@ module.exports = async (req, res) => {
     }
     if (!body.name || !body.email) {
       res.status(400).json({ error: 'Name and email are required.' });
+      return;
+    }
+    if (!EMAIL_RE.test(String(body.email).trim())) {
+      res.status(400).json({ error: 'Please enter a valid email address.' });
       return;
     }
 
@@ -84,6 +90,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ url: session.url });
   } catch (err) {
-    res.status(500).json({ error: err.message || 'Something went wrong creating your checkout session.' });
+    console.error('Checkout session creation failed:', err);
+    res.status(500).json({ error: 'Something went wrong creating your checkout session. Please contact us directly instead.' });
   }
 };

@@ -4,6 +4,13 @@
 (function () {
   'use strict';
 
+  function escapeHtml(value) {
+    return String(value == null ? '' : value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   var PACKAGES = {
     bio: { name: 'Personal Bio Website', price: '€50 one-time', tag: 'Simplest option' },
     portfolio: { name: 'Portfolio Website', price: '€100 one-time', tag: 'Artists & photographers' },
@@ -89,7 +96,7 @@
       .catch(function (err) {
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<i class="ph ph-lock-simple"></i> Continue to secure payment';
-        status.innerHTML = '<i class="ph ph-warning-circle"></i><span>' + err.message + ' You can also <a href="contact.html" class="btn-text">get a quote</a> instead.</span>';
+        status.innerHTML = '<i class="ph ph-warning-circle"></i><span>' + escapeHtml(err.message) + ' You can also <a href="contact.html" class="btn-text">get a quote</a> instead.</span>';
         status.classList.add('is-visible');
       });
   });

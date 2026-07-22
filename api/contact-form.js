@@ -9,6 +9,8 @@
 
 const { Resend } = require('resend');
 
+const EMAIL_RE = /^[^\s@<>()[\]\\,;:"]+@[^\s@<>()[\]\\,;:"]+\.[^\s@<>()[\]\\,;:"]+$/;
+
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
@@ -21,6 +23,15 @@ function truncate(value, max) {
   return String(value).slice(0, max);
 }
 
+// Email headers (subject, reply-to, to) must never contain raw newlines -
+// otherwise a crafted field like "Name\r\nBcc: someone@evil.com" could inject
+// extra headers into the outgoing email. Strip all control characters from
+// anything that ends up in a header position, on top of the HTML-escaping
+// already applied to the message body.
+function sanitizeHeaderValue(value) {
+  return String(value || '').replace(/[\r\n\t\x00-\x1F\x7F]/g, ' ').trim();
+}
+
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
@@ -28,14 +39,28 @@ module.exports = async (req, res) => {
   }
 
   const body = req.body || {};
-  const name = truncate(body.name, 200);
-  const email = truncate(body.email, 200);
-  const company = truncate(body.company, 200);
-  const service = truncate(body.service, 100);
+
+  // Honeypot: a field that's invisible and unreachable for real visitors
+  // but that simple spam bots fill in anyway. If it's populated, pretend
+  // the submission succeeded without actually sending anything.
+  if (body.website) {
+    res.status(200).json({ ok: true });
+    return;
+  }
+
+  const name = sanitizeHeaderValue(truncate(body.name, 200));
+  const email = sanitizeHeaderValue(truncate(body.email, 200));
+  const company = sanitizeHeaderValue(truncate(body.company, 200));
+  const service = sanitizeHeaderValue(truncate(body.service, 100));
   const message = truncate(body.message, 2000);
 
   if (!name || !email || !company || !message) {
     res.status(400).json({ error: 'Name, email, company and message are required.' });
+    return;
+  }
+
+  if (!EMAIL_RE.test(email)) {
+    res.status(400).json({ error: 'Please enter a valid email address.' });
     return;
   }
 
@@ -69,6 +94,7 @@ module.exports = async (req, res) => {
 
     res.status(200).json({ ok: true });
   } catch (err) {
-    res.status(500).json({ error: err.message || 'Something went wrong sending your message.' });
+    console.error('Contact form email failed to send:', err);
+    res.status(500).json({ error: 'Something went wrong sending your message.' });
   }
 };
